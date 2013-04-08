@@ -13,28 +13,33 @@ import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class A_Activity extends Activity implements OnClickListener{
-	static final int[] BUTTONS = 
-		{
-			R.id.button1,
-			R.id.button2,
-			R.id.button3
-		};
+
 	
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
 	    		
-		
+
 		Button button = (Button) findViewById(R.id.button1);
 		button.setOnClickListener(new OnClickListener() {
 		    public void onClick(View v) {
-		    	Toast.makeText(A_Activity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
+		    	Toast.makeText(A_Activity.this, "보를 내셨습니다", Toast.LENGTH_SHORT).show();
 		    	Log.i("Button Event","is Clicked");
 		    }
 		});
+		
+		Button button = (Button) findViewById(R.id.button2);
+		button.setOnClickListener(new OnClickListener() {
+		    public void onClick(View v) {
+		    	Toast.makeText(A_Activity.this, "가위를 내셨습니다", Toast.LENGTH_SHORT).show();
+		    	Log.i("Button Event","is Clicked");
+		    }
+		});
+		
 		button.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View arg0, MotionEvent arg1) {
@@ -44,10 +49,7 @@ public class A_Activity extends Activity implements OnClickListener{
 				return false;
 			}
 		});
-		for(int btnId:BUTTONS){
-			Button tmpButton = (Button) findViewById(btnId);
-			tmpButton.setOnClickListener(this);
-		}
+
 		
 	}
 
